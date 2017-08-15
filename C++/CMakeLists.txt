@@ -8,7 +8,7 @@ if(UNIX AND NOT APPLE)
 endif()
 
 # Project properties
-project(nightwave_core)
+project(NightwaveCore)
 set(TARGET_VERSION_MAJOR 0)
 set(TARGET_VERSION_MINOR 1)
 set(TARGET_VERSION_PATCH 0)
@@ -32,7 +32,7 @@ set(BUILD ${PROJECT_BINARY_DIR})
 include_directories(${ROOT})
 include_directories(${INCL})
 
-add_library(nightwave_core SHARED
+add_library(NightwaveCore SHARED
 	${SRC}/Colors.cpp ${INCL}/Colors.h
 	${SRC}/DCHelpers.cpp ${INCL}/DCHelpers.h
 	${SRC}/Helpers.cpp ${INCL}/Helpers.h
@@ -50,17 +50,17 @@ IF(APPLE)
 	ENDIF()
 	IF(${CMAKE_GENERATOR} MATCHES "Xcode")
 		add_definitions(-DXCODE_BUNDLE)
-		target_link_libraries(nightwave_core "-framework CoreFoundation")
-		set_target_properties(nightwave_core PROPERTIES MACOSX_FRAMEWORK_IDENTIFIER co.nightwave.core)
+		target_link_libraries(NightwaveCore "-framework CoreFoundation")
+		set_target_properties(NightwaveCore PROPERTIES MACOSX_FRAMEWORK_IDENTIFIER co.nightwave.core)
 	ENDIF()
 ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 	add_definitions(-D__NO_INLINE__)
 ENDIF()
 
 include(${wxWidgets_USE_FILE})
-target_link_libraries(nightwave_core ${wxWidgets_LIBRARIES})
+target_link_libraries(NightwaveCore ${wxWidgets_LIBRARIES})
 
-install(TARGETS nightwave_core DESTINATION lib/nightwave_core)
+install(TARGETS NightwaveCore DESTINATION lib)
 
 file(GLOB HEADERS include/*.h)
-install(FILES ${HEADERS} DESTINATION include/nightwave_core)
+install(FILES ${HEADERS} DESTINATION include/NightwaveCore)
