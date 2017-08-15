@@ -33,6 +33,6 @@ deploy:
   provider: releases
   api_key:
     secure: KTRASG0NaxHTKXV3KQ5Ux+PJMJdcr6tBov5TkrkrYCYxfSpOC5cB1tWSrkdM48zRDJKQVfbOSPbtHlIPcFRB5+jnUYUz7h4ynDwBprM83cxpgzt8itgBr1w4XjnDDlU+0FgVkz63W2TxltMq5hMxhWkbVr3+NLU07h/Hk3YMP1d19y9jBMYgjeqQeBOf3LCvaSZU/A7+NsBOaNn/aLkgTvoxkfsJ/xPCWYVNpTwE/f+y2QVzN0eV4V8LEFAr7p7REY5FaQyvn2n1b4hGPla4ZNuRHQT6v158BTMj7r6KMqVUlFk6wYFmfstBJq8nHBSwt+NlfeDIBI526+m7bkucCkjmxNR3O8voiLbsSgkm0Je/M7mQUofGfGI5x/KaLtLv+ZNmTHhMyX4Iah9BfF/1g38Z16qVZ1mDrnHR2rvC/bOKbJqQAmoWu+9MvaiLfUqGJAoLJHwZIQN/kv+/9a6HpSTiEaZ+Rgo3cSKhGOsnoUxroATERG9mPsw8qin53MhmH0lBG9Mh1Nrb+mI49SRe1AhLiqKZnfsMcuCUE6nZWfS2/HHLYOP+BaeydKzBfjfz3lbC81+izxa85+Dog0ST7USWE28BNSxuezodfUZcmI9/Dgmt2JguNctW0TcikfM1dP1aId7UUW3GQhRqHxQvuZ2BV+MXTdvJTRiLijP42uk=
-  file: bin/Debug/libNightwaveCore.dylib
+  file: ~/build/VaduNightwave/NightwaveCore/C++/build/bin/Debug/libNightwaveCore.dylib
   on:
     repo: VaduNightwave/NightwaveCore

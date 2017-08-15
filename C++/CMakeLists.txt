@@ -64,3 +64,10 @@ install(TARGETS NightwaveCore DESTINATION lib)
 
 file(GLOB HEADERS include/*.h)
 install(FILES ${HEADERS} DESTINATION include/NightwaveCore)
+
+find_package(Doxygen)
+IF(DOXYGEN_FOUND)
+	configure_file(${ROOT}/doxygen.conf.in ${BUILD}/doxygen.conf @ONLY)
+	add_custom_target(docs ALL DEPENDS ${BUILD}/doxygen/)
+	add_custom_command(OUTPUT ${BUILD}/doxygen/ COMMAND ${DOXYGEN_EXECUTABLE} ${BUILD}/doxygen.conf DEPENDS ${SRC}/* ${ROOT}/../readme.md ${ROOT}/doxygen.conf.in VERBATIM) # COMMENT "Generating API documentation with Doxygen"
+ENDIF(DOXYGEN_FOUND)
