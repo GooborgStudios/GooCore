@@ -1,5 +1,5 @@
 //
-// Nightwave Global - Colors.cpp
+// Nightwave Core - Colors.cpp
 // ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
 // https://www.nightwave.co/
 //

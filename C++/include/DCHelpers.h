@@ -1,5 +1,5 @@
 //
-// Nightwave Global - DCHelpers.h
+// Nightwave Core - DCHelpers.h
 // ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
 // https://www.nightwave.co/
 //

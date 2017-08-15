@@ -1,5 +1,5 @@
 //
-// Nightwave Global - SplashScreen.h
+// Nightwave Core - SplashScreen.h
 // ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
 // https://www.nightwave.co/
 //

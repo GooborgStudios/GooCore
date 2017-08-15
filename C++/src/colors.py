@@ -1,3 +1,9 @@
+#
+# Nightwave Core - colors.py
+# ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
+# https://www.nightwave.co/
+#
+
 import math
 
 # RGB<>HSL color conversion
