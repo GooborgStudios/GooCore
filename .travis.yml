@@ -37,3 +37,4 @@ deploy:
   file: bin/Debug/libNightwaveCore.dylib
   on:
     repo: VaduNightwave/NightwaveCore
+    tags: true
