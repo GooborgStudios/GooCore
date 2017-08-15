@@ -11,6 +11,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <cmath>
+#include <cassert>
 
 #ifdef XCODE_BUNDLE
 	#include <CoreFoundation/CoreFoundation.h>
