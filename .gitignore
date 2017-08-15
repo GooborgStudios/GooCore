@@ -1,7 +1,5 @@
 */.DS_Store
 *.layout
 *.plist
-.idea/
 build
-*.psd
 profiling_runs/
