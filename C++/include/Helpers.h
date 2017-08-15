@@ -34,6 +34,8 @@
 
 #define PI 3.14159265
 
+void setResourceBase(const char *resource_base);
+
 std::string getResourcePath(const char *resource_name);
 std::string to_padded_string(int value, int width);
 std::string to_padded_string(double value, int width, int precision);
