@@ -12,11 +12,20 @@
 #include <algorithm>
 #include <cmath>
 
-// Mac app bundle vs. unbundled executable resource obtainer
 #ifdef XCODE_BUNDLE
 	#include <CoreFoundation/CoreFoundation.h>
-	
-	std::string getResourcePath(const char *resource_name) {
+#endif
+
+std::string ResourceBase;
+
+void setResourceBase(const char *resource_base) {
+	ResourceBase = std::string(resource_base);
+}
+
+// Mac app bundle vs. unbundled executable resource obtainer
+std::string getResourcePath(const char *resource_name) {
+#ifdef XCODE_BUNDLE
+	if (ResourceBase == "") {
 		CFStringRef resourceName = CFStringCreateWithCString(NULL, resource_name, kCFStringEncodingUTF8);
 		CFURLRef appUrlRef = CFBundleCopyResourceURL(CFBundleGetMainBundle(), resourceName, NULL, NULL);
 		CFRelease(resourceName);
@@ -30,11 +39,10 @@
 
 		return filePath;
 	}
-#else
-	std::string getResourcePath(const char *resource_name) {
-		return std::string(RESOURCE_DIR) + "/" + std::string(resource_name);
-	}
 #endif
+	assert(ResourceBase != "");
+	return std::string(ResourceBase) + "/" + std::string(resource_name);
+}
 
 // Variable conversion
 std::string to_padded_string(int value, int width) {
