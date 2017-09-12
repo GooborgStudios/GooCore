@@ -13,7 +13,7 @@
 #include <cmath>
 #include <cassert>
 
-#ifdef XCODE_BUNDLE
+#ifdef OSX_BUNDLE
 	#include <CoreFoundation/CoreFoundation.h>
 #endif
 
@@ -25,7 +25,7 @@ void setResourceBase(const char *resource_base) {
 
 // Mac app bundle vs. unbundled executable resource obtainer
 std::string getResourcePath(const char *resource_name) {
-#ifdef XCODE_BUNDLE
+#ifdef OSX_BUNDLE
 	if (ResourceBase == "") {
 		CFStringRef resourceName = CFStringCreateWithCString(NULL, resource_name, kCFStringEncodingUTF8);
 		CFURLRef appUrlRef = CFBundleCopyResourceURL(CFBundleGetMainBundle(), resourceName, NULL, NULL);
