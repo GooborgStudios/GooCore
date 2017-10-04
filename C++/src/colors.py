@@ -258,18 +258,41 @@ def LAB2XYZ(luminosity, apoint, bpoint):
 
 
 
-def test_converter(converter1, converter2, tests):
+total_tests = 0
+total_passed = 0
+total_failed = 0
+
+def test_check(i, o):
+	return i[0] == o[0] and i[1] == o[1] and i[2] == o[2]
+
+def test_converter(converter1, converter2, tests, checker=test_check):
+	global total_tests, total_passed, total_failed
+
+	passed = 0
+	failed = 0
+
 	print "Testing {0} -> {1} -> {0}...".format(converter1.__name__, converter2.__name__)
 	for t in tests:
 		comment = "(%s)" %t[3] if len(t) >= 4 else ""
 		result1 = converter1(*t[0:3])
 		result2 = converter2(*result1)
-		print "Pass:" if t[0] == result2[0] and t[1] == result2[1] and t[2] == result2[2] else "FAIL:", t[0:3], "-> %s() ->" %converter1.__name__, result1, "-> %s() ->" %converter2.__name__, result2, comment
-	print ""
+		if checker(t, result2):
+			if False: print "Pass:", t[0:3], "-> %s() ->" %converter1.__name__, result1, "-> %s() ->" %converter2.__name__, result2, comment
+			passed += 1
+			total_passed += 1
+		else:
+			if False: print "FAIL:", t[0:3], "-> %s() ->" %converter1.__name__, result1, "-> %s() ->" %converter2.__name__, result2, comment
+			failed += 1
+			total_failed += 1
+	print "Tests Passed: %d/%d (%d failed)\n" %(passed, len(tests), failed)
+	total_tests += len(tests)
 
 test_converter(RGB2HSL, HSL2RGB, [[255, 255, 255], [0, 0, 0], [255, 0, 0], [255, 255, 0], [0, 255, 0], [0, 255, 255], [0, 0, 255], [255, 0, 255]])
 test_converter(HSL2RGB, RGB2HSL, [[0, 255, 255, "Expected to fail"], [0, 0, 0], [60, 255, 127], [300, 255, 127], [40, 255, 127]])
 test_converter(RGB2HSV, HSV2RGB, [[255, 255, 255], [0, 0, 0], [255, 0, 0], [255, 255, 0], [0, 255, 0], [0, 255, 255], [0, 0, 255], [255, 0, 255]])
 test_converter(HSV2RGB, RGB2HSV, [[0, 255, 255], [0, 0, 0], [60, 255, 255], [300, 255, 255], [40, 0, 255, "Expected to fail"]])
 
-# Reasons behind failure expectations: there's not enough data retained in RGB to know the original hue if saturation is 0 and either velocity is 0 or luminosity is 0 or 255.  These are actually passing checks.
+print "\n -=- STARTING TESTS -=- \n"
+
+print " -=- Total Tests Passed: %d/%d (%d failed) -=-\n" %(total_passed, total_tests, total_failed)
+print " -=- TESTS COMPLETE -=- \n"
