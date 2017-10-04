@@ -9,26 +9,36 @@
 import math
 
 # RGB<>HSL color conversion
-def RGB2HSL(red, green, blue):
-	max_val = max(red, green, blue)
-	min_val = min(red, green, blue)
-	luminosity = (max_val + min_val) / 2
+def RGB2HSL(r, g, b):
+	# XXX Convert to fully utilizing 0-255 and 0-360 ranges for accuracy
+	r = r / 255.0
+	g = g / 255.0
+	b = b / 255.0
 
-	if max_val == min_val:
-		hue = 0
-		saturation = 0
+	max_val = max(r, g, b)
+	min_val = min(r, g, b)
+	hue = saturation = luminosity = (max_val + min_val) / 2
+
+	if max_val == min_val: hue = s = 0
 	else:
 		diff = max_val - min_val
-		if luminosity > 127: saturation = diff * 255 / (510 - max_val - min_val) # Weird line...
-		else: saturation = diff * 255 / (max_val + min_val) # Weird line...
-		if max_val == red:
-			hue = (green - blue) * 60 / diff
-			if green < blue: hue += 360
-		elif max_val == green: hue = (blue - red) * 60 / diff + 120
-		elif max_val == blue: hue = (red - green) * 60 / diff + 240
-	return [hue, saturation, luminosity]
-	
+		if luminosity > 0.5: saturation = diff / (2 - max_val - min_val)
+		else: saturation = diff / (max_val + min_val)
+
+		if max_val == r:
+			hue = (g - b) / diff
+			if g < b: hue += 6.0
+		elif max_val == g: hue = (b - r) / diff + 2.0
+		elif max_val == b: hue = (r - g) / diff + 4.0
+
+	hue = hue * 60
+	saturation = saturation * 255
+	luminosity = luminosity * 255
+
+	return [int(hue), int(saturation), int(luminosity)]
+
 def Hue2RGB(cc_p, cc_q, cc_t):
+	# XXX Convert to fully utilizing 0-255 and 0-360 ranges for accuracy
 	if (cc_t < 0.0): cc_t += 1
 	if (cc_t > 1.0): cc_t -= 1
 	if (cc_t < 1 / 6.0): return cc_p + (cc_q - cc_p) * 6.0 * cc_t
@@ -37,15 +47,21 @@ def Hue2RGB(cc_p, cc_q, cc_t):
 	return cc_p
 
 def HSL2RGB(hue, saturation, luminosity):
+	# XXX Convert to fully utilizing 0-255 and 0-360 ranges for accuracy
 	hue = hue / 360.0
+	saturation = saturation / 255.0
+	luminosity = luminosity / 255.0
+
 	if (saturation == 0.0): red = green = blue = luminosity
 	else:
-		if luminosity < 127: cc_q = luminosity * (1 + saturation) / 255
-		else: cc_q = luminosity + (saturation / 255) - luminosity * (saturation / 255)
-		cc_p = 2.0 * luminosity / 255 - cc_q
-		red = round(max(0, Hue2RGB(cc_p, cc_q, hue + 1 / 3.0) * 255))
-		green = round(max(0, Hue2RGB(cc_p, cc_q, hue) * 255))
-		blue = round(max(0, Hue2RGB(cc_p, cc_q, hue - 1 / 3.0) * 255))
+		if luminosity < 0.5: q = luminosity * (1.0 + saturation)
+		else: q = luminosity + saturation - luminosity * saturation
+		p = 2.0 * luminosity - q
+
+		red = Hue2RGB(p, q, hue + 1.0/3.0) * 255.0
+		green = Hue2RGB(p, q, hue) * 255.0
+		blue = Hue2RGB(p, q, hue - 1.0/3.0) * 255.0
+
 	return [int(red), int(green), int(blue)]
 
 # RGB<>HSV color conversion
