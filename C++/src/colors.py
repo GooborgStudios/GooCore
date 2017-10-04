@@ -1,3 +1,5 @@
+# -*- encoding: utf8 -*-
+
 #
 # Nightwave Core - colors.py
 # ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
