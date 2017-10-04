@@ -22,7 +22,9 @@ def RGB2HSL(r, g, b):
 	if max_val == min_val: hue = s = 0
 	else:
 		diff = max_val - min_val
-		if luminosity > 0.5: saturation = diff / (2 - max_val - min_val)
+		if luminosity > 0.5:
+			if (2 - max_val - min_val) == 0: saturation = 0
+			else: saturation = diff / (2 - max_val - min_val)
 		else: saturation = diff / (max_val + min_val)
 
 		if max_val == r:
@@ -306,21 +308,25 @@ def test_converter(converter1, converter2, tests, checker=test_check):
 def rgb_hsl_test_check(i, o):
 	return i[0] == o[0] and (i[1] == o[1] or (o[1] == 0 and (o[0] == 0 or o[0] == 255))) and i[2] == o[2]
 
-rgb_hsl_tests = []
-hsl_rgb_tests = []
+
+
+step = 4
 
 print " -=- INITIALIZING VARIABLES -=- \n"
 
+rgb_hsl_tests = []
+hsl_rgb_tests = []
+
 print "RGB2HSL..."
-for i1 in range(0, 255):
-	for i2 in range(0, 255):
-		for i3 in range(0, 255):
+for i1 in range(0, 255, step):
+	for i2 in range(0, 255, step):
+		for i3 in range(0, 255, step):
 			rgb_hsl_tests.append([i1, i2, i3])
 
 print "HSL2RGB..."
-for i1 in range(0, 360):
-	for i2 in range(0, 255):
-		for i3 in range(0, 255):
+for i1 in range(0, 359, step):
+	for i2 in range(0, 255, step):
+		for i3 in range(0, 255, step):
 			rgb_hsl_tests.append([i1, i2, i3])
 
 print "\n -=- STARTING TESTS -=- \n"
