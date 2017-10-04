@@ -306,7 +306,7 @@ def test_converter(converter1, converter2, tests, checker=test_check):
 	total_tests += len(tests)
 
 def rgb_hsl_test_check(i, o):
-	return i[0] == o[0] and (i[1] == o[1] or (o[1] == 0 and (o[0] == 0 or o[0] == 255))) and i[2] == o[2]
+	return i[0] == o[0] and (i[1] == o[1] or (o[1] == 0 and (o[2] == 0 or o[2] == 255))) and i[2] == o[2]
 
 
 
