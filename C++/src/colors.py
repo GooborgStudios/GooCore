@@ -303,12 +303,34 @@ def test_converter(converter1, converter2, tests, checker=test_check):
 	print "Tests Passed: %d/%d (%d failed)\n" %(passed, len(tests), failed)
 	total_tests += len(tests)
 
-test_converter(RGB2HSL, HSL2RGB, [[255, 255, 255], [0, 0, 0], [255, 0, 0], [255, 255, 0], [0, 255, 0], [0, 255, 255], [0, 0, 255], [255, 0, 255]])
-test_converter(HSL2RGB, RGB2HSL, [[0, 255, 255, "Expected to fail"], [0, 0, 0], [60, 255, 127], [300, 255, 127], [40, 255, 127]])
-test_converter(RGB2HSV, HSV2RGB, [[255, 255, 255], [0, 0, 0], [255, 0, 0], [255, 255, 0], [0, 255, 0], [0, 255, 255], [0, 0, 255], [255, 0, 255]])
-test_converter(HSV2RGB, RGB2HSV, [[0, 255, 255], [0, 0, 0], [60, 255, 255], [300, 255, 255], [40, 0, 255, "Expected to fail"]])
+def rgb_hsl_test_check(i, o):
+	return i[0] == o[0] and (i[1] == o[1] or (o[1] == 0 and (o[0] == 0 or o[0] == 255))) and i[2] == o[2]
+
+rgb_hsl_tests = []
+hsl_rgb_tests = []
+
+print " -=- INITIALIZING VARIABLES -=- \n"
+
+print "RGB2HSL..."
+for i1 in range(0, 255):
+	for i2 in range(0, 255):
+		for i3 in range(0, 255):
+			rgb_hsl_tests.append([i1, i2, i3])
+
+print "HSL2RGB..."
+for i1 in range(0, 360):
+	for i2 in range(0, 255):
+		for i3 in range(0, 255):
+			rgb_hsl_tests.append([i1, i2, i3])
 
 print "\n -=- STARTING TESTS -=- \n"
+
+test_converter(RGB2HSL, HSL2RGB, rgb_hsl_tests, rgb_hsl_test_check)
+test_converter(HSL2RGB, RGB2HSL, hsl_rgb_tests)
+# test_converter(RGB2HSL, HSL2RGB, [[255, 255, 255], [0, 0, 0], [255, 0, 0], [255, 255, 0], [0, 255, 0], [0, 255, 255], [0, 0, 255], [255, 0, 255]], rgb_hsl_test_check)
+# test_converter(HSL2RGB, RGB2HSL, [[0, 255, 255], [0, 0, 0], [60, 255, 127], [300, 255, 127], [40, 255, 127]])
+# test_converter(RGB2HSV, HSV2RGB, [[255, 255, 255], [0, 0, 0], [255, 0, 0], [255, 255, 0], [0, 255, 0], [0, 255, 255], [0, 0, 255], [255, 0, 255]])
+# test_converter(HSV2RGB, RGB2HSV, [[0, 255, 255], [0, 0, 0], [60, 255, 255], [300, 255, 255], [40, 0, 255]])
 
 print " -=- Total Tests Passed: %d/%d (%d failed) -=-\n" %(total_passed, total_tests, total_failed)
 print " -=- TESTS COMPLETE -=- \n"
