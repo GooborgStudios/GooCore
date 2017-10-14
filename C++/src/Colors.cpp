@@ -162,7 +162,7 @@ int* Color::AsCMYK() {
 }
 
 Color::operator wxColour() const {
-	return wxColor(RGB[0], RGB[1], RGB[2]);
+	return wxColour(RGB[0], RGB[1], RGB[2]);
 }
 
 bool Color::operator==(Color &a) {
