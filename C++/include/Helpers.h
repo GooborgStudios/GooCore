@@ -32,6 +32,11 @@
 	#define APP_ICON "icons/icon_64.png"
 #endif
 
+#ifndef WINDOWS
+	#define max std::max
+	#define min std::min
+#endif
+
 #define PI 3.14159265
 
 void setResourceBase(const char *resource_base);
