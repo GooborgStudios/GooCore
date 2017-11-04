@@ -1,5 +1,5 @@
 //
-// Nightwave Core - DCHelpers.h
+// Nightwave Core - TextWrap.h
 // ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
 // https://www.nightwave.co/
 //
@@ -11,4 +11,6 @@
 	#include <wx/wx.h>
 #endif
 
-void DrawWrappedText(std::string text, wxDC &canvas, wxRect box);
+#include "NightwaveCore.h"
+
+EXPORT void DrawWrappedText(std::string text, wxDC &canvas, wxRect box);

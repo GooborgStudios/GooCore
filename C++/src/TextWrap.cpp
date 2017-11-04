@@ -1,10 +1,10 @@
 //
-// Nightwave Core - DCHelpers.cpp
+// Nightwave Core - TextWrap.cpp
 // ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
 // https://www.nightwave.co/
 //
 
-#include "DCHelpers.h"
+#include "TextWrap.h"
 
 #include <wx/wxprec.h>
 #ifndef WX_PRECOMP

@@ -23,7 +23,7 @@
 	#include <wx/wx.h>
 #endif
 
-#include "Helpers.h"
+#include "NightwaveCore.h"
 
 Color::Color() {
 

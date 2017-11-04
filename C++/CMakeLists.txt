@@ -35,9 +35,9 @@ include_directories(${ROOT})
 include_directories(${INCL})
 
 add_library(NightwaveCore SHARED
+	${SRC}/NightwaveCore.cpp ${INCL}/NightwaveCore.h
 	${SRC}/Colors.cpp ${INCL}/Colors.h
-	${SRC}/DCHelpers.cpp ${INCL}/DCHelpers.h
-	${SRC}/Helpers.cpp ${INCL}/Helpers.h
+	${SRC}/TextWrap.cpp ${INCL}/TextWrap.h
 	${SRC}/SplashScreen.cpp ${INCL}/SplashScreen.h
 )
 
