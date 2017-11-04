@@ -26,7 +26,7 @@
 #include "wx/dcmemory.h"
 #include "wx/dcclient.h"
 
-#include "DCHelpers.h"
+#include "TextWrap.h"
 
 BEGIN_EVENT_TABLE(SplashScreen, wxFrame)
 	EVT_CLOSE(SplashScreen::OnCloseWindow)

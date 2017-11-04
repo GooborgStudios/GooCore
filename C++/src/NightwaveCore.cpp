@@ -1,10 +1,10 @@
 //
-// Nightwave Core - Helpers.cpp
+// Nightwave Core - NightwaveCore.cpp
 // ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
 // https://www.nightwave.co/
 //
 
-#include "Helpers.h"
+#include "NightwaveCore.h"
 
 #include <string>
 #include <sstream>
