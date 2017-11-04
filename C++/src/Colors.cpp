@@ -162,7 +162,7 @@ int* Color::AsCMYK() {
 }
 
 Color::operator wxColour() const {
-	return wxColor(RGB[0], RGB[1], RGB[2]);
+	return wxColour(RGB[0], RGB[1], RGB[2]);
 }
 
 bool Color::operator==(Color &a) {
@@ -351,26 +351,26 @@ void ColorConverter::LAB2RGB(double luminosity, double apoint, double bpoint, in
 
 // HSL<>RGB<>HSV color conversion
 void ColorConverter::HSL2HSV(double hue, double saturation, double luminosity, double *_hue, double *_saturation, double *velocity) {
-	double red, green, blue;
+//	double red, green, blue;
 //	HSL2RGB(hue, saturation, luminosity, &red, &green, &blue);
 //	RGB2HSV(red, green, blue, _hue, _saturation, velocity);
 }
 
 void ColorConverter::HSV2HSL(double hue, double saturation, double velocity, double *_hue, double *_saturation, double *luminosity) {
-	double red, green, blue;
+//	double red, green, blue;
 //	HSV2RGB(hue, saturation, velocity, &red, &green, &blue);
 //	RGB2HSL(red, green, blue, _hue, _saturation, luminosity);
 }
 
 // HSL<>RGB<>CMYK color conversion
 void ColorConverter::HSL2CMYK(double hue, double saturation, double luminosity, double *cyan, double *magenta, double *yellow, double *black) {
-	double red, green, blue;
+//	double red, green, blue;
 //	HSL2RGB(hue, saturation, luminosity, &red, &green, &blue);
 //	RGB2CMYK(red, green, blue, cyan, magenta, yellow, black);
 }
 
 void ColorConverter::CMYK2HSL(double cyan, double magenta, double yellow, double black, double *hue, double *saturation, double *luminosity) {
-	double red, green, blue;
+//	double red, green, blue;
 //	CMYK2RGB(cyan, magenta, yellow, black, &red, &green, &blue);
 //	RGB2HSL(red, green, blue, hue, saturation, luminosity);
 }
@@ -390,13 +390,13 @@ void ColorConverter::CMYK2HSV(double cyan, double magenta, double yellow, double
 
 // HSL<>RGB<>YIQ color conversion
 void ColorConverter::HSL2YIQ(double hue, double saturation, double luminosity, double *yluma, double *inphase, double *quadrature) {
-	double red, green, blue;
+//	double red, green, blue;
 //	HSL2RGB(hue, saturation, luminosity, &red, &green, &blue);
 //	RGB2YIQ(red, green, blue, yluma, inphase, quadrature);
 }
 
 void ColorConverter::YIQ2HSL(double yluma, double inphase, double quadrature, double *hue, double *saturation, double *luminosity) {
-	double red, green, blue;
+//	double red, green, blue;
 //	YIQ2RGB(yluma, inphase, quadrature, &red, &green, &blue);
 //	RGB2HSL(red, green, blue, hue, saturation, luminosity);
 }
