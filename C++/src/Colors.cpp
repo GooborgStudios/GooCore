@@ -199,18 +199,18 @@ double ColorConverter::LAB_compare_RGB(wxColor color1, wxColor color2) {
 
 // RGB<>HSL color conversion
 void ColorConverter::RGB2HSL(int red, int green, int blue, int *hue, int *saturation, int *luminosity) {
-	int max = threeway_max(red, green, blue);
-	int min = threeway_min(red, green, blue);
-	*luminosity = (max + min) / 2;
+	int maximum = threeway_max(red, green, blue);
+	int minimum = threeway_min(red, green, blue);
+	*luminosity = (maximum + minimum) / 2;
 
-	if (max == min) {
+	if (maximum == minimum) {
 		*hue = *saturation = 0; // achromatic
 	} else {
-		int diff = max - min;
-		*saturation = *luminosity > 127 ? diff / (510 - max - min) : diff / (max + min);
-		if (max == red) *hue = (green - blue) * 60 / diff + (green < blue ? 6 : 0);
-		else if (max == green) *hue = (blue - red) * 60 / diff + 120;
-		else if (max == blue) *hue = (red - green) * 60 / diff + 240;
+		int diff = maximum - minimum;
+		*saturation = *luminosity > 127 ? diff / (510 - maximum - minimum) : diff / (maximum + minimum);
+		if (maximum == red) *hue = (green - blue) * 60 / diff + (green < blue ? 6 : 0);
+		else if (maximum == green) *hue = (blue - red) * 60 / diff + 120;
+		else if (maximum == blue) *hue = (red - green) * 60 / diff + 240;
 	}
 }
 
@@ -220,26 +220,26 @@ void ColorConverter::HSL2RGB(int hue, int saturation, int luminosity, int *red, 
 	} else {
 		double cc_q = luminosity < 127 ? luminosity * (1 + saturation) / 255 : luminosity + (saturation / 255) - luminosity * (saturation / 255);
 		double cc_p = 2.0 * luminosity / 255 - cc_q;
-		*red = floor(std::min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue + 1 / 3.0 / 360) * 255));
-		*green = floor(std::min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue / 360) * 255));
-		*blue = floor(std::min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue - 1 / 3.0 / 360) * 255));
+		*red = floor(min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue + 1 / 3.0 / 360) * 255));
+		*green = floor(min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue / 360) * 255));
+		*blue = floor(min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue - 1 / 3.0 / 360) * 255));
 	}
 }
 
 // RGB<>HSV color conversion
 void ColorConverter::RGB2HSV(double red, double green, double blue, double *hue, double *saturation, double *velocity) {
-	double max = threeway_max(red, green, blue);
-	double min = threeway_min(red, green, blue);
-	double diff = max - min;
-	*velocity = max;
-	*saturation = max == 0.0 ? 0.0 : diff / max;
+	double maximum = threeway_max(red, green, blue);
+	double minimum = threeway_min(red, green, blue);
+	double diff = maximum - minimum;
+	*velocity = maximum;
+	*saturation = maximum == 0.0 ? 0.0 : diff / maximum;
 
-	if (max == min) {
+	if (maximum == minimum) {
 		*hue = 0.0; // achromatic
 	} else {
-		if (max == red) *hue = (green - blue) / diff + (green < blue ? 6.0 : 0.0);
-		else if (max == green) *hue = (blue - red) / diff + 2.0;
-		else if (max == blue) *hue = (red - green) / diff + 4.0;
+		if (maximum == red) *hue = (green - blue) / diff + (green < blue ? 6.0 : 0.0);
+		else if (maximum == green) *hue = (blue - red) / diff + 2.0;
+		else if (maximum == blue) *hue = (red - green) / diff + 4.0;
 		*hue /= 6.0;
 	}
 }
