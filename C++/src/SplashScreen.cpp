@@ -28,12 +28,6 @@
 
 #include "TextWrap.h"
 
-BEGIN_EVENT_TABLE(SplashScreen, wxFrame)
-	EVT_CLOSE(SplashScreen::OnCloseWindow)
-	EVT_PAINT(SplashScreen::OnPaint)
-	EVT_ERASE_BACKGROUND(SplashScreen::OnEraseBackground)
-END_EVENT_TABLE()
-
 SplashScreen::SplashScreen() {
 	// Init();
 }
@@ -209,3 +203,9 @@ int SplashScreen::FilterEvent(wxEvent &event) {
 	
 	return -1;
 }
+
+BEGIN_EVENT_TABLE(SplashScreen, wxFrame)
+	EVT_CLOSE(SplashScreen::OnCloseWindow)
+	EVT_PAINT(SplashScreen::OnPaint)
+	EVT_ERASE_BACKGROUND(SplashScreen::OnEraseBackground)
+END_EVENT_TABLE()

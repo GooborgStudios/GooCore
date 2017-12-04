@@ -14,15 +14,6 @@
 #include "NightwaveCore.h"
 
 class EXPORT Color {
-	private:
-		int RGB[3] = {0, 0, 0};
-		int HSL[3] = {0, 0, 0};
-		int HSV[3] = {0, 0, 0};
-		int YIQ[3] = {0, 0, 0};
-		int XYZ[3] = {0, 0, 0};
-		int LAB[3] = {0, 0, 0};
-		int CMYK[4] = {0, 0, 0, 0};
-	
 	public:
 		Color();
 		Color(int red, int green, int blue);
@@ -47,6 +38,15 @@ class EXPORT Color {
 		operator wxColour() const;
 	
 		bool operator ==(Color &a);
+
+	private:
+		int RGB[3] = {0, 0, 0};
+		int HSL[3] = {0, 0, 0};
+		int HSV[3] = {0, 0, 0};
+		int YIQ[3] = {0, 0, 0};
+		int XYZ[3] = {0, 0, 0};
+		int LAB[3] = {0, 0, 0};
+		int CMYK[4] = {0, 0, 0, 0};
 };
 
 namespace ColorConverter {

@@ -37,7 +37,7 @@ Color::Color(int cyan, int magenta, int yellow, int black) {
 	SetCMYK(cyan, magenta, yellow, black);
 }
 
-Color::Color(wxColor color) {
+Color::Color(wxColour color) {
 	SetRGB(color.Red(), color.Green(), color.Blue());
 }
 
@@ -165,7 +165,7 @@ Color::operator wxColour() const {
 	return wxColour(RGB[0], RGB[1], RGB[2]);
 }
 
-bool Color::operator==(Color &a) {
+bool Color::operator ==(Color &a) {
 	int *oRGB = a.AsRGB();
 	return (RGB[0] == oRGB[0] && RGB[1] == oRGB[1] && RGB[2] == oRGB[2]);
 }
