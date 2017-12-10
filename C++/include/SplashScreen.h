@@ -23,7 +23,6 @@
 
 class EXPORT SplashScreen: public wxFrame, public wxEventFilter {
 	public:
-		SplashScreen();
 		SplashScreen(wxWindow *parent, wxWindowID window_id, wxBitmap &bitmap, wxString copyright = "", wxRect copyrightbox = wxRect(0, 0, 0, 0), wxColor copyrightcolor = *wxBLACK, wxFont copyrightfont = wxFont(), wxRect loadingtextbox = wxRect(0, 0, 0, 0), wxRect loadingbarbox = wxRect(0, 0, 0, 0));
 		virtual ~SplashScreen();
 		void OnCloseWindow(wxCloseEvent &event);

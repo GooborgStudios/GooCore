@@ -28,10 +28,6 @@
 
 #include "TextWrap.h"
 
-SplashScreen::SplashScreen() {
-	// Init();
-}
-
 SplashScreen::SplashScreen(wxWindow *parent, wxWindowID window_id, wxBitmap &bitmap, wxString copyright, wxRect copyrightbox, wxColor textcolor, wxFont textfont, wxRect loadingtextbox, wxRect loadingbarbox) : wxFrame() {
 	Create(parent, window_id, wxEmptyString, wxPoint(0,0), wxSize(100, 100), wxSIMPLE_BORDER | wxSTAY_ON_TOP | wxFRAME_TOOL_WINDOW | wxFRAME_NO_TASKBAR | wxTRANSPARENT_WINDOW);
 	
