@@ -45,6 +45,10 @@ std::string getResourcePath(const char *resource_name) {
 	return std::string(ResourceBase) + "/" + std::string(resource_name);
 }
 
+std::string getResourcePath(std::string resource_name) {
+	return getResourcePath(resource_name.c_str());
+}
+
 // Variable conversion
 std::string to_padded_string(int value, int width) {
 	std::ostringstream out;

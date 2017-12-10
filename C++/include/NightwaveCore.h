@@ -43,6 +43,8 @@
 EXPORT void setResourceBase(const char *resource_base);
 EXPORT std::string getResourcePath(const char *resource_name);
 
+EXPORT std::string getResourcePath(std::string resource_name);
+
 EXPORT std::string to_padded_string(int value, int width);
 EXPORT std::string to_padded_string(double value, int width, int precision);
 
