@@ -13,4 +13,5 @@
 
 #include "NightwaveCore.h"
 
+/// \todo Document me!
 EXPORT void DrawWrappedText(std::string text, wxDC &canvas, wxRect box);

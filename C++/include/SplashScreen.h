@@ -4,9 +4,10 @@
 // https://www.nightwave.co/
 //
 
-//
-// This file is a modified copy from the wxWidgets wxSplashScreen class
-//
+/**
+ * @file   SplashScreen.h
+ * @brief  This file holds the SplashScreen class, which is a modified copy of wxWidgets' wxSplashScreen class intended to allow for more than just a non-transparent image.
+ */
 
 #pragma once
 
@@ -23,6 +24,19 @@
 
 class EXPORT SplashScreen: public wxFrame, public wxEventFilter {
 	public:
+		/**
+		 * @brief      This function initializes the splash screen window with a given image and other parameters.
+		 *
+		 * @param      parent          The parent window.
+		 * @param[in]  window_id       The window identifier.
+		 * @param      bitmap          The image to display as the splash screen.
+		 * @param[in]  copyright       The copyright text.
+		 * @param[in]  copyrightbox    The bounding box of the copyright text.
+		 * @param[in]  copyrightcolor  The copyright text color.
+		 * @param[in]  copyrightfont   The copyright text font.
+		 * @param[in]  loadingtextbox  The progress text bounding box.
+		 * @param[in]  loadingbarbox   The loading bar bounding box.
+		 */
 		SplashScreen(wxWindow *parent, wxWindowID window_id, wxBitmap &bitmap, wxString copyright = "", wxRect copyrightbox = wxRect(0, 0, 0, 0), wxColor copyrightcolor = *wxBLACK, wxFont copyrightfont = wxFont(), wxRect loadingtextbox = wxRect(0, 0, 0, 0), wxRect loadingbarbox = wxRect(0, 0, 0, 0));
 		virtual ~SplashScreen();
 		void OnCloseWindow(wxCloseEvent &event);
