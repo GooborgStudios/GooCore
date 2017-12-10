@@ -133,31 +133,31 @@ void Color::SetCMYK(int cyan, int magenta, int yellow, int black) {
 	// ColorConverter::CMYK2LAB(CMYK[0], CMYK[1], CMYK[2], CMYK[3], &LAB[0], &LAB[1], &LAB[2]);
 }
 
-int* Color::AsRGB() {
+int *Color::AsRGB() {
 	return RGB;
 }
 
-int* Color::AsHSL() {
+int *Color::AsHSL() {
 	return HSL;
 }
 
-int* Color::AsHSV() {
+int *Color::AsHSV() {
 	return HSV;
 }
 
-int* Color::AsYIQ() {
+int *Color::AsYIQ() {
 	return YIQ;
 }
 
-int* Color::AsXYZ() {
+int *Color::AsXYZ() {
 	return XYZ;
 }
 
-int* Color::AsLAB() {
+int *Color::AsLAB() {
 	return LAB;
 }
 
-int* Color::AsCMYK() {
+int *Color::AsCMYK() {
 	return CMYK;
 }
 
@@ -165,7 +165,7 @@ Color::operator wxColour() const {
 	return wxColour(RGB[0], RGB[1], RGB[2]);
 }
 
-bool Color::operator ==(Color &a) {
+bool Color::operator==(Color &a) {
 	int *oRGB = a.AsRGB();
 	return (RGB[0] == oRGB[0] && RGB[1] == oRGB[1] && RGB[2] == oRGB[2]);
 }

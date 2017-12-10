@@ -6,7 +6,7 @@ This is the core library for all Nightwave Studios software, written in C++ (mor
 ### Dependencies
 - A C++11 compiler
 - CMake
-- WxWidgets
+- wxWidgets
 - Doxygen (optional)
 
 ### Build
