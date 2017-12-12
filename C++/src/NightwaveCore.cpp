@@ -64,25 +64,25 @@ std::string to_padded_string(double value, int width, int precision) {
 
 // Math helpers
 double threeway_max(double val_a, double val_b, double val_c) {
-	return max(val_a, max(val_b, val_c));
+	return NWC_max(val_a, NWC_max(val_b, val_c));
 }
 
 int threeway_max(int val_a, int val_b, int val_c) {
-	return max(val_a, max(val_b, val_c));
+	return NWC_max(val_a, NWC_max(val_b, val_c));
 }
 
 double threeway_min(double val_a, double val_b, double val_c) {
-	return min(val_a, min(val_b, val_c));
+	return NWC_min(val_a, NWC_min(val_b, val_c));
 }
 
 int threeway_min(int val_a, int val_b, int val_c) {
-	return min(val_a, min(val_b, val_c));
+	return NWC_min(val_a, NWC_min(val_b, val_c));
 }
 
 double clamp(double val, double minimum, double maximum) {
-	return max(minimum, min(val, maximum));
+	return NWC_max(minimum, NWC_min(val, maximum));
 }
 
 int clamp(int val, int minimum, int maximum) {
-	return max(minimum, min(val, maximum));
+	return NWC_max(minimum, NWC_min(val, maximum));
 }

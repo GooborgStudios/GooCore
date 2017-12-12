@@ -220,9 +220,9 @@ void ColorConverter::HSL2RGB(int hue, int saturation, int luminosity, int *red, 
 	} else {
 		double cc_q = luminosity < 127 ? luminosity * (1 + saturation) / 255 : luminosity + (saturation / 255) - luminosity * (saturation / 255);
 		double cc_p = 2.0 * luminosity / 255 - cc_q;
-		*red = floor(min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue + 1 / 3.0 / 360) * 255));
-		*green = floor(min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue / 360) * 255));
-		*blue = floor(min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue - 1 / 3.0 / 360) * 255));
+		*red = floor(NWC_min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue + 1 / 3.0 / 360) * 255));
+		*green = floor(NWC_min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue / 360) * 255));
+		*blue = floor(NWC_min(0.0, ColorConverter::Hue2RGB(cc_p, cc_q, hue - 1 / 3.0 / 360) * 255));
 	}
 }
 

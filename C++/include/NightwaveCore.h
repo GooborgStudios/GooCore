@@ -39,10 +39,12 @@
 
 #ifdef WINDOWS
 	#define EXPORT __declspec(dllexport)
+	#define NWC_max max
+	#define NWC_min min
 #else
 	#define EXPORT 
-	#define max std::max
-	#define min std::min
+	#define NWC_max std::max
+	#define NWC_min std::min
 #endif
 
 /**
