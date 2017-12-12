@@ -55,7 +55,6 @@
  * @param[in]  resource_base  The base resource path
  */
 EXPORT void setResourceBase(const char *resource_base);
-
 /**
  * @brief      Gets the path of a specified resource.
  *
@@ -64,10 +63,8 @@ EXPORT void setResourceBase(const char *resource_base);
  * @return     The full resource path.
  */
 EXPORT std::string getResourcePath(const char *resource_name);
-
 /// \overload std::string getResourcePath(const char *resource_name)
 EXPORT std::string getResourcePath(std::string resource_name);
-
 /**
  * @brief      This function takes an integer and returns a string padded with 0's.
  *
@@ -77,7 +74,6 @@ EXPORT std::string getResourcePath(std::string resource_name);
  * @return     A string of the integer at the given width.
  */
 EXPORT std::string to_padded_string(int value, int width);
-
 /**
  * @brief      This function takes a double and returns a string padded with 0's.
  *

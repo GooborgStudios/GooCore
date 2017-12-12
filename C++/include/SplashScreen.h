@@ -38,25 +38,45 @@ class EXPORT SplashScreen: public wxFrame, public wxEventFilter {
 		 * @param[in]  loadingbarbox   The loading bar bounding box.
 		 */
 		SplashScreen(wxWindow *parent, wxWindowID window_id, wxBitmap &bitmap, wxString copyright = "", wxRect copyrightbox = wxRect(0, 0, 0, 0), wxColor copyrightcolor = *wxBLACK, wxFont copyrightfont = wxFont(), wxRect loadingtextbox = wxRect(0, 0, 0, 0), wxRect loadingbarbox = wxRect(0, 0, 0, 0));
+		/// \todo Document me!
 		virtual ~SplashScreen();
+		/// \todo Document me!
 		void OnCloseWindow(wxCloseEvent &event);
+		/// \todo Document me!
 		void OnNotify(wxTimerEvent &event);
+		/// \todo Document me!
 		void OnEraseBackground(wxEraseEvent &event);
+		/// \todo Document me!
 		void OnPaint(wxPaintEvent &event);
+		/// \todo Document me!
 		void render(wxDC &canvas);
+		/// \todo Document me!
 		void SetBitmap(wxBitmap &bitmap);
+		/// \todo Document me!
 		wxBitmap &GetBitmap();
+		/// \todo Document me!
 		void SetCopyright(wxString copyright);
+		/// \todo Document me!
 		wxString GetCopyright();
+		/// \todo Document me!
 		void SetCopyrightBox(wxRect copyrightbox);
+		/// \todo Document me!
 		wxRect GetCopyrightBox();
+		/// \todo Document me!
 		void SetTextColor(wxColor textcolor);
+		/// \todo Document me!
 		wxColor GetTextColor();
+		/// \todo Document me!
 		void SetTextFont(wxFont textfont);
+		/// \todo Document me!
 		wxFont GetTextFont();
+		/// \todo Document me!
 		void SetProgress(int progress);
+		/// \todo Document me!
 		void SetProgress(int progress, std::string progresstext);
+		/// \todo Document me!
 		int GetProgress();
+		/// \todo Document me!
 		virtual int FilterEvent(wxEvent &event);
 
 	protected:
