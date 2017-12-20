@@ -10,7 +10,7 @@ endif()
 # Project properties
 project(NightwaveCore)
 set(TARGET_VERSION_MAJOR 0)
-set(TARGET_VERSION_MINOR 1)
+set(TARGET_VERSION_MINOR 2)
 set(TARGET_VERSION_PATCH 0)
 set(TARGET_COPYRIGHT "©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.")
 
@@ -35,10 +35,11 @@ include_directories(${ROOT})
 include_directories(${INCL})
 
 add_library(NightwaveCore SHARED
+	${SRC}/NightwaveCore.cpp ${INCL}/NightwaveCore.h
 	${SRC}/Colors.cpp ${INCL}/Colors.h
-	${SRC}/DCHelpers.cpp ${INCL}/DCHelpers.h
-	${SRC}/Helpers.cpp ${INCL}/Helpers.h
+	${SRC}/TextWrap.cpp ${INCL}/TextWrap.h
 	${SRC}/SplashScreen.cpp ${INCL}/SplashScreen.h
+	${SRC}/QuickFilePanel.cpp ${INCL}/QuickFilePanel.h
 )
 
 set(CMAKE_CXX_COMPILER g++)
