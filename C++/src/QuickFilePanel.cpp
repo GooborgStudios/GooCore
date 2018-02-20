@@ -4,6 +4,8 @@
 // https://www.nightwave.co/
 //
 
+#ifdef USE_WXWIDGETS // Entire file requires wxWidgets
+
 #include "QuickFilePanel.h"
 
 #include <wx/wxprec.h>
@@ -179,3 +181,5 @@ void QuickFilePanel::ListDirectory(wxString path, wxDataViewItem *files) {
 		delete current_file;
 	}
 }
+
+#endif

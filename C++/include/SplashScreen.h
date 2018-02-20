@@ -11,6 +11,8 @@
 
 #pragma once
 
+#ifdef USE_WXWIDGETS // Entire file requires wxWidgets
+
 #include <wx/wxprec.h>
 #ifndef WX_PRECOMP
 	#include <wx/wx.h>
@@ -93,3 +95,5 @@ class EXPORT SplashScreen: public wxFrame, public wxEventFilter {
 	DECLARE_EVENT_TABLE()
 	wxDECLARE_NO_COPY_CLASS(SplashScreen);
 };
+
+#endif

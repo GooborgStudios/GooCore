@@ -11,6 +11,8 @@
 
 #pragma once
 
+#ifdef USE_WXWIDGETS // Entire file requires wxWidgets
+
 #include <wx/wxprec.h>
 #ifndef WX_PRECOMP
 	#include <wx/wx.h>
@@ -70,3 +72,6 @@ class QuickFilePanel: public wxPanel {
 };
 
 wxDECLARE_EVENT(FILE_SELECT, wxCommandEvent);
+
+#endif
+

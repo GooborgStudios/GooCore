@@ -4,6 +4,8 @@
 // https://www.nightwave.co/
 //
 
+#ifdef USE_WXWIDGETS // Entire file requires wxWidgets
+
 #include "TextWrap.h"
 
 #include <wx/wxprec.h>
@@ -50,3 +52,5 @@ void DrawWrappedText(std::string text, wxDC &canvas, wxRect box) {
 	
 	delete lines;
 }
+
+#endif

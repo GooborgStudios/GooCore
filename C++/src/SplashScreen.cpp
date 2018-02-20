@@ -8,6 +8,8 @@
 // This file is a modified copy from the wxWidgets wxSplashScreen class
 //
 
+#ifdef USE_WXWIDGETS // Entire file requires wxWidgets
+
 #include "SplashScreen.h"
 
 #include <wx/wxprec.h>
@@ -205,3 +207,5 @@ BEGIN_EVENT_TABLE(SplashScreen, wxFrame)
 	EVT_PAINT(SplashScreen::OnPaint)
 	EVT_ERASE_BACKGROUND(SplashScreen::OnEraseBackground)
 END_EVENT_TABLE()
+
+#endif

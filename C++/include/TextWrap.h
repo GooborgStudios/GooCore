@@ -6,6 +6,8 @@
 
 #pragma once
 
+#ifdef USE_WXWIDGETS // Entire file requires wxWidgets
+
 #include <wx/wxprec.h>
 #ifndef WX_PRECOMP
 	#include <wx/wx.h>
@@ -15,3 +17,5 @@
 
 /// \todo Document me!
 EXPORT void DrawWrappedText(std::string text, wxDC &canvas, wxRect box);
+
+#endif
