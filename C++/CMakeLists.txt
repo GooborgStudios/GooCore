@@ -10,8 +10,8 @@ endif()
 # Project properties
 project(NightwaveCore)
 set(TARGET_VERSION_MAJOR 0)
-set(TARGET_VERSION_MINOR 2)
-set(TARGET_VERSION_PATCH 0)
+set(TARGET_VERSION_MINOR 1)
+set(TARGET_VERSION_PATCH 1)
 set(TARGET_COPYRIGHT "©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.")
 
 set(CMAKE_BINARY_DIR ${PROJECT_BINARY_DIR})
