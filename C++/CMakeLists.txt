@@ -47,7 +47,7 @@ add_library(GooCore SHARED
 IF(APPLE)
 	add_definitions(-DOSX_BUNDLE)
 	target_link_libraries(GooCore "-framework CoreFoundation")
-	set_target_properties(GooCore PROPERTIES MACOSX_FRAMEWORK_IDENTIFIER co.nightwave.core)
+	set_target_properties(GooCore PROPERTIES MACOSX_FRAMEWORK_IDENTIFIER com.gooborg.core)
 ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 	add_definitions(-D__NO_INLINE__)
 ENDIF()
