@@ -1,10 +1,10 @@
 //
-// Nightwave Core - NightwaveCore.cpp
-// ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
-// https://www.nightwave.co/
+// GooCore - GooCore.cpp
+// ©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.
+// http://www.gooborg.com/
 //
 
-#include "NightwaveCore.h"
+#include "GooCore.h"
 
 #include <string>
 #include <sstream>

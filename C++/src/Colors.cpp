@@ -1,7 +1,7 @@
 //
-// Nightwave Core - Colors.cpp
-// ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
-// https://www.nightwave.co/
+// GooCore - Colors.cpp
+// ©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.
+// http://www.gooborg.com/
 //
 
 // RGB->XYZ->LAB conversion modified from: http://www.csie.ntu.edu.tw/~b92069/HWs/rgb2lab.c
@@ -18,12 +18,14 @@
 #include <algorithm>
 #include <cmath>
 
-#include <wx/wxprec.h>
-#ifndef WX_PRECOMP
-	#include <wx/wx.h>
+#ifdef USE_WXWIDGETS
+	#include <wx/wxprec.h>
+	#ifndef WX_PRECOMP
+		#include <wx/wx.h>
+	#endif
 #endif
 
-#include "NightwaveCore.h"
+#include "GooCore.h"
 
 Color::Color() {
 
@@ -37,9 +39,11 @@ Color::Color(int cyan, int magenta, int yellow, int black) {
 	SetCMYK(cyan, magenta, yellow, black);
 }
 
+#ifdef USE_WXWIDGETS
 Color::Color(wxColour color) {
 	SetRGB(color.Red(), color.Green(), color.Blue());
 }
+#endif
 
 void Color::SetRGB(int red, int green, int blue) {
 	// XXX Convert for other types
@@ -161,9 +165,11 @@ int *Color::AsCMYK() {
 	return CMYK;
 }
 
+#ifdef USE_WXWIDGETS
 Color::operator wxColour() const {
 	return wxColour(RGB[0], RGB[1], RGB[2]);
 }
+#endif
 
 bool Color::operator==(Color &a) {
 	int *oRGB = a.AsRGB();
@@ -193,9 +199,11 @@ double ColorConverter::LAB_compare_RGB(int red1, int green1, int blue1, int red2
 	return pow((luminosity1 - luminosity2), 2) + pow((apoint1 - apoint2), 2) + pow((bpoint1 - bpoint2), 2);
 }
 
+#ifdef USE_WXWIDGETS
 double ColorConverter::LAB_compare_RGB(wxColor color1, wxColor color2) {
 	return LAB_compare_RGB(color1.Red(), color1.Green(), color1.Blue(), color2.Red(), color2.Green(), color2.Blue());
 }
+#endif
 
 // RGB<>HSL color conversion
 void ColorConverter::RGB2HSL(int red, int green, int blue, int *hue, int *saturation, int *luminosity) {

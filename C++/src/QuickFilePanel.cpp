@@ -1,8 +1,10 @@
 //
-// NightwaveCore - QuickFilePanel.cpp
-// ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
-// https://www.nightwave.co/
+// GooCore - QuickFilePanel.cpp
+// ©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.
+// http://www.gooborg.com/
 //
+
+#ifdef USE_WXWIDGETS // Entire file requires wxWidgets
 
 #include "QuickFilePanel.h"
 
@@ -25,7 +27,7 @@
 	#include <magic.h>
 #endif
 
-#include "NightwaveCore.h"
+#include "GooCore.h"
 
 wxDEFINE_EVENT(FILE_SELECT, wxCommandEvent);
 
@@ -179,3 +181,5 @@ void QuickFilePanel::ListDirectory(wxString path, wxDataViewItem *files) {
 		delete current_file;
 	}
 }
+
+#endif

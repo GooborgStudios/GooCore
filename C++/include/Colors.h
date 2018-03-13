@@ -1,7 +1,7 @@
 //
-// Nightwave Core - Colors.h
-// ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
-// https://www.nightwave.co/
+// GooCore - Colors.h
+// ©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.
+// http://www.gooborg.com/
 //
 
 /**
@@ -11,12 +11,14 @@
 
 #pragma once
 
-#include <wx/wxprec.h>
-#ifndef WX_PRECOMP
-	#include <wx/wx.h>
+#ifdef USE_WXWIDGETS
+	#include <wx/wxprec.h>
+	#ifndef WX_PRECOMP
+		#include <wx/wx.h>
+	#endif
 #endif
 
-#include "NightwaveCore.h"
+#include "GooCore.h"
 
 class EXPORT Color {
 	/**
@@ -44,12 +46,16 @@ class EXPORT Color {
 		 * @param[in]  black    The black value.
 		 */
 		Color(int cyan, int magenta, int yellow, int black);
+
+		#ifdef USE_WXWIDGETS
 		/**
 		 * @brief      Initializes the Color object using a wxColour object.
 		 *
 		 * @param[in]  color  The wxColour object to copy from.
 		 */
 		Color(wxColour color);
+		#endif
+
 		/**
 		 * @brief      Sets the Color object to specified color in RGB format.
 		 *
@@ -149,10 +155,14 @@ class EXPORT Color {
 		 * @return     An array of 4 ints representing the Color in CMYK format.
 		 */
 		int* AsCMYK();
+
+		#ifdef USE_WXWIDGETS
 		/**
 		 * @brief      Static casting of the Color object as a wxColour object using the RGB color method.
 		 */
 		operator wxColour() const;
+		#endif
+
 		/**
 		 * @brief      Checks to see if the two colors match using RGB comparison.
 		 *
@@ -179,7 +189,9 @@ namespace ColorConverter {
 	EXPORT double Hue2RGB(double cc_p, double cc_q, double cc_t);
 	EXPORT double XYZ2H(double cc_q);
 	EXPORT double LAB_compare_RGB(int red1, int green1, int blue1, int red2, int green2, int blue2);
+	#ifdef USE_WXWIDGETS
 	EXPORT double LAB_compare_RGB(wxColour color1, wxColour color2);
+	#endif
 
 	// Base converter
 	/// \todo Document me!

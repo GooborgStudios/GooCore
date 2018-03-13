@@ -1,4 +1,4 @@
-# Nightwave Studios - C++ Core
+# Gooborg Studios - C++ Core
 
 # Minimum version required for CMake
 cmake_minimum_required(VERSION 3.1)
@@ -7,12 +7,14 @@ if(UNIX AND NOT APPLE)
 	set(LINUX TRUE)
 endif()
 
+set(CMAKE_OSX_DEPLOYMENT_TARGET "10.10" CACHE STRING "Minimum macOS deployment version")
+
 # Project properties
-project(NightwaveCore)
+project(GooCore)
 set(TARGET_VERSION_MAJOR 0)
 set(TARGET_VERSION_MINOR 1)
 set(TARGET_VERSION_PATCH 1)
-set(TARGET_COPYRIGHT "©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.")
+set(TARGET_COPYRIGHT "©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.")
 
 set(CMAKE_BINARY_DIR ${PROJECT_BINARY_DIR})
 set(PROJECT_SOURCE_DIR ${CMAKE_SOURCE_DIR}/src)
@@ -34,37 +36,35 @@ set(BUILD ${PROJECT_BINARY_DIR})
 include_directories(${ROOT})
 include_directories(${INCL})
 
-add_library(NightwaveCore SHARED
-	${SRC}/NightwaveCore.cpp ${INCL}/NightwaveCore.h
+add_library(GooCore SHARED
+	${SRC}/GooCore.cpp ${INCL}/GooCore.h
 	${SRC}/Colors.cpp ${INCL}/Colors.h
 	${SRC}/TextWrap.cpp ${INCL}/TextWrap.h
 	${SRC}/SplashScreen.cpp ${INCL}/SplashScreen.h
 	${SRC}/QuickFilePanel.cpp ${INCL}/QuickFilePanel.h
 )
 
-set(CMAKE_CXX_COMPILER g++)
-find_package(wxWidgets COMPONENTS html qa adv core xml net base REQUIRED)
-execute_process(COMMAND "wx-config --cxxflags" OUTPUT_VARIABLE wxConfig_CXX_FLAGS)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ${wxConfig_CXX_FLAGS}")
-
 IF(APPLE)
-	IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=10.12")
-	ENDIF()
 	add_definitions(-DOSX_BUNDLE)
-	target_link_libraries(NightwaveCore "-framework CoreFoundation")
-	set_target_properties(NightwaveCore PROPERTIES MACOSX_FRAMEWORK_IDENTIFIER co.nightwave.core)
+	target_link_libraries(GooCore "-framework CoreFoundation")
+	set_target_properties(GooCore PROPERTIES MACOSX_FRAMEWORK_IDENTIFIER co.nightwave.core)
 ELSEIF(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
 	add_definitions(-D__NO_INLINE__)
 ENDIF()
 
-include(${wxWidgets_USE_FILE})
-target_link_libraries(NightwaveCore ${wxWidgets_LIBRARIES})
+find_package(wxWidgets COMPONENTS html qa adv core xml net base)
+IF(wxWidgets_FOUND)
+	add_definitions(-DUSE_WXWIDGETS)
+	execute_process(COMMAND "wx-config --cxxflags" OUTPUT_VARIABLE wxConfig_CXX_FLAGS)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ${wxConfig_CXX_FLAGS}")
+	include(${wxWidgets_USE_FILE})
+	target_link_libraries(GooCore ${wxWidgets_LIBRARIES})
+ENDIF(wxWidgets_FOUND)
 
-install(TARGETS NightwaveCore DESTINATION lib)
+install(TARGETS GooCore DESTINATION lib)
 
 file(GLOB HEADERS include/*.h)
-install(FILES ${HEADERS} DESTINATION include/NightwaveCore)
+install(FILES ${HEADERS} DESTINATION include/GooCore)
 
 find_package(Doxygen)
 IF(DOXYGEN_FOUND)

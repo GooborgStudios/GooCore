@@ -1,12 +1,14 @@
 //
-// Nightwave Core - SplashScreen.cpp
-// ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
-// https://www.nightwave.co/
+// GooCore - SplashScreen.cpp
+// ©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.
+// http://www.gooborg.com/
 //
 
 //
 // This file is a modified copy from the wxWidgets wxSplashScreen class
 //
+
+#ifdef USE_WXWIDGETS // Entire file requires wxWidgets
 
 #include "SplashScreen.h"
 
@@ -25,6 +27,7 @@
 
 #include "wx/dcmemory.h"
 #include "wx/dcclient.h"
+#include "wx/evtloop.h"
 
 #include "TextWrap.h"
 
@@ -179,7 +182,7 @@ wxFont SplashScreen::GetTextFont() {
 void SplashScreen::SetProgress(int progress) {
 	m_progress = progress;
 	Refresh();
-	wxYield();
+	if (wxEventLoopBase::GetActive() != NULL && wxEventLoopBase::GetActive()->IsYielding()) wxYield();
 }
 
 void SplashScreen::SetProgress(int progress, std::string progresstext) {
@@ -205,3 +208,5 @@ BEGIN_EVENT_TABLE(SplashScreen, wxFrame)
 	EVT_PAINT(SplashScreen::OnPaint)
 	EVT_ERASE_BACKGROUND(SplashScreen::OnEraseBackground)
 END_EVENT_TABLE()
+
+#endif

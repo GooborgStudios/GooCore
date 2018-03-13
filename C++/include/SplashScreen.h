@@ -1,7 +1,7 @@
 //
-// Nightwave Core - SplashScreen.h
-// ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
-// https://www.nightwave.co/
+// GooCore - SplashScreen.h
+// ©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.
+// http://www.gooborg.com/
 //
 
 /**
@@ -10,6 +10,8 @@
  */
 
 #pragma once
+
+#ifdef USE_WXWIDGETS // Entire file requires wxWidgets
 
 #include <wx/wxprec.h>
 #ifndef WX_PRECOMP
@@ -20,7 +22,7 @@
 #include "wx/eventfilter.h"
 #include "wx/frame.h"
 
-#include "NightwaveCore.h"
+#include "GooCore.h"
 
 class EXPORT SplashScreen: public wxFrame, public wxEventFilter {
 	public:
@@ -93,3 +95,5 @@ class EXPORT SplashScreen: public wxFrame, public wxEventFilter {
 	DECLARE_EVENT_TABLE()
 	wxDECLARE_NO_COPY_CLASS(SplashScreen);
 };
+
+#endif
