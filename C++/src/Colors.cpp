@@ -1,7 +1,7 @@
 //
-// Nightwave Core - Colors.cpp
-// ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
-// https://www.nightwave.co/
+// GooCore - Colors.cpp
+// ©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.
+// http://www.gooborg.com/
 //
 
 // RGB->XYZ->LAB conversion modified from: http://www.csie.ntu.edu.tw/~b92069/HWs/rgb2lab.c
@@ -25,7 +25,7 @@
 	#endif
 #endif
 
-#include "NightwaveCore.h"
+#include "GooCore.h"
 
 Color::Color() {
 

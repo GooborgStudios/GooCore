@@ -1,9 +1,9 @@
 # -*- encoding: utf8 -*-
 
 #
-# Nightwave Core - colors.py
-# ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
-# https://www.nightwave.co/
+# GooCore - colors.py
+# ©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.
+# http://www.gooborg.com/
 #
 
 import math

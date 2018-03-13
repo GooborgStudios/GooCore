@@ -1,7 +1,7 @@
 //
-// Nightwave Core - TextWrap.h
-// ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
-// https://www.nightwave.co/
+// GooCore - TextWrap.h
+// ©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.
+// http://www.gooborg.com/
 //
 
 #pragma once
@@ -13,7 +13,7 @@
 	#include <wx/wx.h>
 #endif
 
-#include "NightwaveCore.h"
+#include "GooCore.h"
 
 /// \todo Document me!
 EXPORT void DrawWrappedText(std::string text, wxDC &canvas, wxRect box);

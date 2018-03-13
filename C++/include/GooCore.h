@@ -1,11 +1,11 @@
 //
-// Nightwave Core - NightwaveCore.h
-// ©2017 Nightwave Studios: Vinyl Darkscratch, Light Apacha.
-// https://www.nightwave.co/
+// GooCore - GooCore.h
+// ©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.
+// http://www.gooborg.com/
 //
 
 /**
- * @file   NightwaveCore.h
+ * @file   GooCore.h
  * @brief  This file holds the basic definitions, as well as several helper functions.
  */
 
