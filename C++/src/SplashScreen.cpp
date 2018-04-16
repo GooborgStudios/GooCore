@@ -182,7 +182,7 @@ wxFont SplashScreen::GetTextFont() {
 void SplashScreen::SetProgress(int progress) {
 	m_progress = progress;
 	Refresh();
-	if (wxEventLoopBase::GetActive() != NULL && wxEventLoopBase::GetActive()->IsYielding()) wxYield();
+	wxYield();
 }
 
 void SplashScreen::SetProgress(int progress, std::string progresstext) {

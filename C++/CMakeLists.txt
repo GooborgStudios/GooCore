@@ -12,8 +12,8 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "10.10" CACHE STRING "Minimum macOS deployment v
 # Project properties
 project(GooCore)
 set(TARGET_VERSION_MAJOR 0)
-set(TARGET_VERSION_MINOR 1)
-set(TARGET_VERSION_PATCH 1)
+set(TARGET_VERSION_MINOR 2)
+set(TARGET_VERSION_PATCH 0)
 set(TARGET_COPYRIGHT "©2018 Gooborg Studios: Vinyl Darkscratch, Light Apacha.")
 
 set(CMAKE_BINARY_DIR ${PROJECT_BINARY_DIR})
